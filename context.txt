@@ -1,0 +1,20 @@
+Chia thành hai trường hợp chính (có, không sử dung điện thoại) và các ngữ cảnh tương ứng:
+
+===========
+1. Không sử dụng điện thoại
+	- Điện thoại ở gần nhưng không sử dụng: để trên bàn, ghế xe, trên kệ, trong túi, ...
+	- Cầm nhưng không sử dụng: đặt vào túi, nói chuyện với người khác, đưa điện thoại cho người khác, hoạt động khác, ...
+	- Các thiết bị giống nhưng không phải điện thoại: điều khiển, đồng hồ thông minh, máy đo sức khỏe
+	- 
+
+
+2. Sử dụng điện thoại
+	- Cầm điện thoại và tương tác trực tiếp: cầm và nhìn vào màn hình, chạm vào màn hình hoặc bấm nút
+	- Gọi điện và cầm diện thoại gần tai
+	- Chụp ảnh hoặc quay video
+	- Sử dụng điện thoại khi đang lái xe
+	- Dùng điện thoại để điều khiển các thiết bị khác: Điều hòa, TV, ...
+	- Sử dụng điện thoại trong các tư thế nằm/ngồi
+	- Sử dụng điện thoại để thanh toán: Quét QR
+	
+	

@@ -1,0 +1,29 @@
+Bước 1: Xác định yêu cầu & thiết lập mục tiêu
+	- Mục tiêu: Mô hình phát hiện xem một người có đang sử dụng điện thoại hay không trong các ngữ cảnh khác nhau (context.txt).
+	- Định nghĩa các nhãn: Hai nhãn chính là "có sử dụng điện thoại" và "không sử dụng điện thoại".
+	
+Bước 2: Thu thập Dữ liệu
+	- Có sẵn: Kaggle, Google Dataset Search, github, ...
+	- Tự thu thập: Tìm trên google, cắt ra từ video, ... Mỗi context nhỏ yêu cầu tối thiểu 100 ảnh.
+	- Gán nhãn cho dữ liệu: Gán nhãn thủ công hoặc dùng LabelImg/RectLabel để vẽ bounding box (vùng khoanh) cho người và điện thoại.
+	
+Bước 3: Chuẩn bị Dữ liệu (Data Preprocessing)
+	- Xử lý hình ảnh: Cùng kích thước. Tăng tính đa dạng (xoay, phóng to, thay đổi độ sáng,...)
+	- Phân chia dữ liệu: train, test, validation.
+	
+Bước 4: Xây dựng và Thiết kế Mô hình
+
+Bước 5: Huấn luyện Mô hình (Training)
+
+Bước 6: Đánh giá Mô hình (Evaluation)
+	- Kiểm tra trên tập kiểm thử: Sau khi huấn luyện, kiểm tra mô hình trên tập kiểm thử chưa từng thấy để đánh giá hiệu quả thực sự.
+	- Các chỉ số đánh giá: Precision, Recall, F1-Score, và mAP.
+	- Kiểm tra các trường hợp mà mô hình dễ nhầm lẫn => điều chỉnh
+	
+Bước 7: Tối ưu hóa và Điều chỉnh Mô hình
+	- Ensembling: Nếu có thể, kết hợp kết quả từ nhiều mô hìn (như YOLO và Faster R-CNN).
+	- Attention Mechanism: vùng tay và mặt của người để mô hình có thể tập trung vào các vùng quan trọng.
+	
+Bước 8: Triển khai và Sử dụng Mô hình (Deployment)
+
+Bước 9: Theo dõi và Bảo trì Mô hình sau Triển khai
