@@ -1,17 +1,59 @@
 Bước 1: Xác định yêu cầu & thiết lập mục tiêu
-	- Mục tiêu: Mô hình phát hiện xem một người có đang sử dụng điện thoại hay không trong các ngữ cảnh khác nhau (context.txt).
+	- Mục tiêu: Mô hình phát hiện xem một người có đang sử dụng điện thoại hay không trong các ngữ cảnh khác nhau.
 	- Định nghĩa các nhãn: Hai nhãn chính là "có sử dụng điện thoại" và "không sử dụng điện thoại".
-	
+		+ YES (Có dùng điện thoại): 
+			1. (Y1) Cầm điện thoại và tương tác trực tiếp
+			2. (Y2) Gọi điện và cầm điện thoại gần tai
+			3. (Y3) Chụp ảnh hoặc quay video
+			4. (Y4) Sử dụng điện thoại khi đang lái xe
+			5. (Y5) Dùng điện thoại để điều khiển các thiết bị khác (Điều hòa, TV, ...)
+			6. (Y6) Sử dụng điện thoại trong các tư thế nằm/ngồi
+			7. (Y7) Sử dụng điện thoại để thanh toán: Quét QR	
+				=> Tối thiểu 700 (7 x 100)
+
+		+ No (Không dùng điện thoại):
+			1. (N1) Điện thoại ở gần nhưng không sử dụng: để trên bàn, ghế xe, trên kệ, trong túi, ...
+			2. (N2) Cầm nhưng không sử dụng: đặt vào túi, nói chuyện với người khác, đưa điện thoại cho người khác, hoạt động khác, ...
+			3. (N3) Các thiết bị giống nhưng không phải điện thoại: điều khiển, đồng hồ thông minh, máy đo sức khỏe
+				=> Tối thiểu 550 ảnh
+			4. (N4) Ảnh không liên quan:
+				- Cảnh thiên nhiên
+				- Văn phòng/nhà ở
+				- Đồ vật
+				- Đường phố
+				- Động/thực vật
+				
+	=> Cân bằng dữ liệu thì cần 150 ảnh không liên quan để đưa vào tập "NO".
+
+
 Bước 2: Thu thập Dữ liệu
 	- Có sẵn: Kaggle, Google Dataset Search, github, ...
-	- Tự thu thập: Tìm trên google, cắt ra từ video, ... Mỗi context nhỏ yêu cầu tối thiểu 100 ảnh.
-	- Gán nhãn cho dữ liệu: Gán nhãn thủ công hoặc dùng LabelImg/RectLabel để vẽ bounding box (vùng khoanh) cho người và điện thoại.
+		+ Một số từ khóa: 	Driver Behavior, 
+							Human Activity Recognition, 
+							Phone usage dataset,
+							Human phone interaction, 
+							Driver distraction datasetH
+							Human activity with smartphone.
+
+	- Tự thu thập: Tìm trên google, cắt ra từ video, ... 		
+	- Gán nhãn cho dữ liệu: 
+		+ Gán nhãn thủ công 
+		+ Công cụ: LabelImg/RectLabel để vẽ bounding box
+	- Thực tế: 
+	- Gán nhãn bằng Folder.
 	
 Bước 3: Chuẩn bị Dữ liệu (Data Preprocessing)
-	- Xử lý hình ảnh: Cùng kích thước. Tăng tính đa dạng (xoay, phóng to, thay đổi độ sáng,...)
-	- Phân chia dữ liệu: train, test, validation.
+	- Xử lý hình ảnh: 
+		+ Đưa về cùng kích thước. 
+		+ Tăng tính đa dạng: Xoay, lật, cắt, tăng độ sáng, bão hòa, tương phản, thêm nhiễu 
+			=> 7 ảnh mới
+			=> Tự động hóa tăng cường ảnh thông qua thư viện:Albumentations, imgaug, hoặc Keras: ImageDataGenerator 
+	- Phân chia dữ liệu: train, test, validation : 80, 10, 10.
 	
-Bước 4: Xây dựng và Thiết kế Mô hình
+Bước 4: Xây dựng và thiết kế mô hình
+	Có hai cách tiếp cận bài toán (Sẽ cố gắng thực hiện cả hai trường hợp): 
+	1. Thuần CNN: Đầu vào ảnh đã xử lý, đầu ra là quyết định yes/no.
+	2. Tích hợp nhiều mô hình (model2.txt)
 
 Bước 5: Huấn luyện Mô hình (Training)
 

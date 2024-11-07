@@ -1,0 +1,29 @@
+--- Kiến trúc Mô hình Đề xuất ---
+
+1. Phần phát hiện đối tượng (Object Detection Backbone)
+Sử dụng một mô hình phát hiện đối tượng mạnh mẽ như YOLOv5 hoặc Faster R-CNN. Mô hình này sẽ làm nhiệm vụ phát hiện và tạo bounding boxes cho các đối tượng trong khung hình: người và điện thoại.
+Đầu ra của phần này sẽ là các bounding boxes cho người và điện thoại, bao gồm tọa độ, kích thước, và độ tin cậy (confidence score).
+
+2. Phần phân tích tư thế (Pose Estimation Module)
+Sử dụng một mô hình Pose Estimation như OpenPose hoặc MediaPipe để xác định các điểm chính trên cơ thể của người. Các điểm này sẽ bao gồm đầu, tay, vai, và có thể thêm các điểm chi tiết hơn tùy theo yêu cầu.
+Đầu ra của phần này là các tọa độ của điểm cơ thể, giúp xác định tư thế và hướng của người so với điện thoại.
+
+3. Phần phân tích tương tác và tương quan (Interaction and Relation Module)
+Tính toán khoảng cách và vị trí tương đối: Dựa trên các bounding boxes từ mô hình phát hiện đối tượng và điểm tư thế từ mô hình ước lượng tư thế, tính toán khoảng cách giữa điện thoại và các phần cơ thể của người.
+Phân tích hướng nhìn: Dùng các điểm tư thế ở đầu để xác định hướng nhìn của người. Nếu hướng nhìn và tay đều hướng về phía điện thoại, đó có thể là dấu hiệu của hành vi "sử dụng điện thoại".
+Ra quyết định sơ bộ: Nếu khoảng cách giữa tay và điện thoại nhỏ, và hướng nhìn hướng về phía điện thoại, đánh dấu đây là "sử dụng điện thoại". Nếu không có tương tác nào, đánh dấu là "không sử dụng điện thoại".
+
+4. Phần chú ý (Attention Mechanism)
+Attention vào vùng tay và đầu: Sử dụng Attention Mechanism để tăng cường phân tích ở các vùng quan trọng như tay và mặt, giúp mô hình nhận diện chính xác các chi tiết nhỏ hơn liên quan đến hành vi sử dụng điện thoại.
+Kết hợp Attention với Output của Pose Estimation: Điều này giúp mô hình tập trung vào các khu vực có khả năng chứa hành vi, như tay đang cầm điện thoại hoặc mặt đang nhìn vào điện thoại, giúp mô hình đưa ra quyết định chính xác hơn.
+
+5. Layer kết hợp và ra quyết định (Decision Layer)
+Kết hợp đầu ra từ các phần khác nhau: Đầu ra từ các phần phát hiện đối tượng, phân tích tư thế, và Attention sẽ được kết hợp để đưa ra quyết định cuối cùng.
+Ra quyết định cuối cùng: Dựa trên các thông số (khoảng cách, hướng nhìn, tương tác), mô hình sẽ đưa ra dự đoán cuối cùng về hành vi "sử dụng điện thoại" hoặc "không sử dụng điện thoại".
+
+--- Tóm tắt Quy trình Hoạt động của Kiến trúc Mô hình ---
+Phát hiện đối tượng: Xác định người và điện thoại trong khung hình.
+Ước lượng tư thế: Xác định các điểm tư thế của người để lấy thông tin về hướng nhìn và vị trí của tay.
+Phân tích tương tác: Tính toán khoảng cách và vị trí tương đối giữa tay, đầu và điện thoại để phát hiện tương tác.
+Attention: Tập trung vào các vùng quan trọng để tăng cường khả năng phát hiện các chi tiết liên quan đến hành vi.
+Kết hợp thông tin và ra quyết định: Sử dụng thông tin từ tất cả các bước để đưa ra kết quả cuối cùng về việc người có đang sử dụng điện thoại hay không.

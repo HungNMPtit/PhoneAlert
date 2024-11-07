@@ -1,0 +1,14 @@
+Data/
+├── YES/
+│   ├── Y1/  # Cầm điện thoại và tương tác trực tiếp
+│   ├── Y2/  # Gọi điện và cầm điện thoại gần tai
+│   ├── Y3/  # Chụp ảnh hoặc quay video
+│   ├── Y4/  # Sử dụng điện thoại khi đang lái xe
+│   ├── Y5/  # Dùng điện thoại để điều khiển thiết bị khác
+│   ├── Y6/  # Sử dụng điện thoại trong tư thế nằm/ngồi
+│   └── Y7/  # Sử dụng điện thoại để thanh toán: Quét QR
+└── NO/
+    ├── N1/  # Điện thoại ở gần nhưng không sử dụng
+    ├── N2/  # Cầm nhưng không sử dụng
+    ├── N3/  # Thiết bị giống điện thoại nhưng không phải điện thoại
+    └── N4/  # Dữ liệu không liên quan (hình ảnh không có người hoặc điện thoại)
