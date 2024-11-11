@@ -5,7 +5,7 @@ Bước 1: Xác định yêu cầu & thiết lập mục tiêu
 			1. (Y1) Cầm điện thoại và tương tác trực tiếp
 			2. (Y2) Gọi điện và cầm điện thoại gần tai
 			3. (Y3) Chụp ảnh hoặc quay video
-			4. (Y4) Sử dụng điện thoại khi đang lái xe
+			4. (Y4) Sử dụng điện thoại khi đang lái xe: xe máy, đạp, ô tô
 			5. (Y5) Dùng điện thoại để điều khiển các thiết bị khác (Điều hòa, TV, ...)
 			6. (Y6) Sử dụng điện thoại trong các tư thế nằm/ngồi
 			7. (Y7) Sử dụng điện thoại để thanh toán: Quét QR	
@@ -27,6 +27,7 @@ Bước 1: Xác định yêu cầu & thiết lập mục tiêu
 
 
 Bước 2: Thu thập Dữ liệu
+	- Trong ảnh có thể có nhiều chủ thể
 	- Có sẵn: Kaggle, Google Dataset Search, github, ...
 		+ Một số từ khóa: 	Driver Behavior, 
 							Human Activity Recognition, 
